@@ -1,0 +1,16 @@
+[
+{
+  "modid": "docslamps",
+  "name": "DOC's Lamps",
+  "description": "Always wanted better a bunch of light sources that look more fashionable and technological than vanilla torches? Well hello there, this mod is for you!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["DOCtorActoAntohich"],
+  "credits": "The Forge and FML guys, GregTech CEu for build files, Blockbench for (epic?) models.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
