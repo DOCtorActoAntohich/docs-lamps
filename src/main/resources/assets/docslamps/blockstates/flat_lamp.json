@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "docslamps:flat_lamp_model"
+    }
+  }
+}
