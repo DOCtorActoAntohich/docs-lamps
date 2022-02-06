@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "OGO",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stone"
+    },
+    "G": {
+      "type": "forge:ore_dict",
+      "ore": "glowstone"
+    },
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "blockGlassColorless"
+    }
+  },
+  "result": {
+    "item": "docslamps:flat_lamp",
+    "count": 16,
+    "data": 0
+  }
+}

@@ -14,6 +14,8 @@ public class ItemBase extends Item {
     }
 
     public void registerModels() {
-        DocsLamps.commonProxy.registerItemRenderer(this, 0, "inventory");
+        DocsLamps.commonProxy.registerItemRenderer(
+                this, 0, "inventory"
+        );
     }
 }
