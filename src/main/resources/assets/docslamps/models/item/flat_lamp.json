@@ -1,0 +1,33 @@
+{
+  "parent": "docslamps:block/flat_lamp_model",
+  "display": {
+    "gui": {
+      "scale": [ 1.5, 1.5, 1.5 ],
+      "rotation": [ 90, 0, 0 ]
+    },
+    "head": {
+      "translation": [ 0, 0, -14 ],
+      "rotation": [ -90, 0, 0 ]
+    },
+    "ground": {
+      "scale": [ 0.5, 0.5, 0.5 ],
+      "translation": [0, 3, 0]
+    },
+    "firstperson_righthand": {
+      "translation": [0, 8, 0],
+      "rotation": [ 0, 0, 15 ]
+    },
+    "firstperson_lefthand": {
+      "translation": [0, 8, 0],
+      "rotation": [ 0, 0, 15 ]
+    },
+    "thirdperson_righthand": {
+      "scale": [ 0.5, 0.5, 0.5 ],
+      "translation": [0, 4, 0]
+    },
+    "thirdperson_lefthand": {
+      "scale": [ 0.5, 0.5, 0.5 ],
+      "translation": [0, 4, 0]
+    }
+  }
+}
