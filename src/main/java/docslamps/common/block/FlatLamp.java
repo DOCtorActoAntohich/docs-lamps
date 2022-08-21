@@ -53,11 +53,12 @@ public class FlatLamp extends RotatableLamp {
     }
 
     public FlatLamp(String name) {
-        super(name, Material.IRON);
+        super(name, Material.CIRCUITS);
 
         this.setLightLevel(1.0f);
         this.setHardness(0.3f);
         this.setResistance(0.5f);
+        this.setSoundType(SoundType.METAL);
     }
 
     @Override
