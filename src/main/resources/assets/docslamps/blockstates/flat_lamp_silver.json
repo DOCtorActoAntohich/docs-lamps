@@ -1,0 +1,28 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "docslamps:flat_lamp_silver"
+  },
+  "variants": {
+    "facing": {
+      "up": {
+        "x": 0
+      },
+      "down": {
+        "x": 180, "y": 180
+      },
+      "north": {
+        "y": 180, "x": -90
+      },
+      "south": {
+        "x": -90
+      },
+      "east": {
+        "y": -90, "x": -90
+      },
+      "west": {
+        "y": 90,  "x": -90
+      }
+    }
+  }
+}

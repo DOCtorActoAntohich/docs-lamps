@@ -1,0 +1,6 @@
+{
+    "parent": "docslamps:block/flat_lamp_base",
+	"textures": {
+		"1": "docslamps:block/flat_lamp/light_yellow"
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "docslamps:block/flat_lamp/stand",
+		"1": "docslamps:block/flat_lamp/light_white",
+		"particle": "stand"
+	},
+	"elements": [
+		{
+			"name": "stand",
+			"from": [4, 0, 4],
+			"to": [12, 0.5, 12],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 0.5], "texture": "#0"},
+				"east": {"uv": [8, 1, 16, 1.5], "texture": "#0"},
+				"south": {"uv": [8, 2, 16, 2.5], "texture": "#0"},
+				"west": {"uv": [8, 3, 16, 3.5], "texture": "#0"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#0"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "light",
+			"from": [6, 0.5, 6],
+			"to": [10, 1, 10],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 2], "texture": "#1"},
+				"east": {"uv": [8, 2, 16, 4], "texture": "#1"},
+				"south": {"uv": [8, 4, 16, 6], "texture": "#1"},
+				"west": {"uv": [8, 6, 16, 8], "texture": "#1"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#1"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#1"}
+			}
+		}
+	]
+}
