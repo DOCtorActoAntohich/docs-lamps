@@ -165,24 +165,26 @@ public class RotatableLamp extends Block {
         EnumFacing facing;
         switch (meta)
         {
-            case 0:
-                facing = EnumFacing.DOWN;
-                break;
             case 1:
-                facing = EnumFacing.EAST;
+                facing = EnumFacing.UP;
                 break;
             case 2:
-                facing = EnumFacing.WEST;
+                facing = EnumFacing.NORTH;
                 break;
             case 3:
                 facing = EnumFacing.SOUTH;
                 break;
             case 4:
-                facing = EnumFacing.NORTH;
+                facing = EnumFacing.WEST;
                 break;
             case 5:
+                facing = EnumFacing.EAST;
+                break;
+            case 0:
             default:
-                facing = EnumFacing.UP;
+                facing = EnumFacing.DOWN;
+                break;
+
         }
         return this.getDefaultState().withProperty(FACING, facing);
     }
@@ -193,18 +195,18 @@ public class RotatableLamp extends Block {
     {
         switch (state.getValue(FACING))
         {
-            case EAST:
+            case UP:
                 return 1;
-            case WEST:
+            case NORTH:
                 return 2;
             case SOUTH:
                 return 3;
-            case NORTH:
+            case WEST:
                 return 4;
-            case UP:
-            default:
+            case EAST:
                 return 5;
             case DOWN:
+            default:
                 return 0;
         }
     }
