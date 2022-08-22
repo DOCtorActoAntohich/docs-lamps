@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "docs_flat_lamp",
+  "pattern": [
+    "OOO",
+    "O#O",
+    "OOO"
+  ],
+  "key": {
+    "#": {
+      "type": "forge:ore_dict",
+      "ore": "dyeLime"
+    },
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "docsLampFlat"
+    }
+  },
+  "result": {
+    "item": "docslamps:flat_lamp_lime",
+    "count": 8,
+    "data": 0
+  }
+}
