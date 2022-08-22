@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 
 @MethodsReturnNonnullByDefault
-public class RotatableLamp extends Block {
+public abstract class RotatableLamp extends Block {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
     public RotatableLamp(String name, Material material) {
@@ -51,6 +51,8 @@ public class RotatableLamp extends Block {
                 .map(RotatableLamp::makeItemBlock)
                 .collect(Collectors.toList());
     }
+
+    public abstract String oreDictName();
 
     @Override
     @ParametersAreNonnullByDefault

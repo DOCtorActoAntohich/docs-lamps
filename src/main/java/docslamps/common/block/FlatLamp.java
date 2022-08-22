@@ -93,4 +93,9 @@ public class FlatLamp extends RotatableLamp {
                 return Collision.FULL_BLOCK_AABB;
         }
     }
+
+    @Override
+    public String oreDictName() {
+        return "docsLampFlat";
+    }
 }
