@@ -1,5 +1,6 @@
 package docslamps.common.block;
 
+import docslamps.common.creativetab.DocsLampsCreativeTab;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +9,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -17,18 +19,38 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 @MethodsReturnNonnullByDefault
-public class RotatableLamp extends BlockBase {
+public class RotatableLamp extends Block {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
     public RotatableLamp(String name, Material material) {
-        super(name, material);
+        super(material);
+
+        this.setRegistryName(name);
+        this.setTranslationKey(name);
+        this.setCreativeTab(DocsLampsCreativeTab.getInstance());
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
     }
 
+    public ItemBlock makeItemBlock() {
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(Objects.requireNonNull(getRegistryName()));
+        itemBlock.setTranslationKey(getTranslationKey());
+        itemBlock.setCreativeTab(getCreativeTab());
+        return itemBlock;
+    }
+
+    public static <T extends RotatableLamp> List<ItemBlock> itemBlocks(List<T> blocks) {
+        return blocks.stream()
+                .map(RotatableLamp::makeItemBlock)
+                .collect(Collectors.toList());
+    }
 
     @Override
     @ParametersAreNonnullByDefault
