@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "docslamps:block/flat_lamp/stand",
 		"1": "docslamps:block/flat_lamp/light_white",
-		"particle": "stand"
+		"particle": "docslamps:block/flat_lamp/stand"
 	},
 	"elements": [
 		{
