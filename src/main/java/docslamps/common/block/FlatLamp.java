@@ -72,6 +72,7 @@ public class FlatLamp extends RotatableLamp {
                 .collect(Collectors.toList());
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

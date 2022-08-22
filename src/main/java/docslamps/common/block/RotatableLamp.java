@@ -64,28 +64,27 @@ public class RotatableLamp extends Block {
         return false;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public boolean isOpaqueCube(IBlockState bs) {
         return false;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return NULL_AABB;
     }
-
-
 
     @Override
     @ParametersAreNonnullByDefault
@@ -124,6 +123,7 @@ public class RotatableLamp extends Block {
                 !isExceptBlockForAttachWithPiston(neighborBlock);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
@@ -133,6 +133,7 @@ public class RotatableLamp extends Block {
                 this.getDefaultState().withProperty(FACING, EnumFacing.UP);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
@@ -157,7 +158,7 @@ public class RotatableLamp extends Block {
         return false;
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -208,7 +209,7 @@ public class RotatableLamp extends Block {
         }
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState withRotation(IBlockState state, Rotation rot)
@@ -216,7 +217,7 @@ public class RotatableLamp extends Block {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
@@ -229,7 +230,7 @@ public class RotatableLamp extends Block {
         return new BlockStateContainer(this, FACING);
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
