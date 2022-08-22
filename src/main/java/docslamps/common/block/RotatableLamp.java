@@ -1,5 +1,6 @@
 package docslamps.common.block;
 
+import docslamps.common.creativetab.DocsLampsCreativeTab;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +9,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -17,18 +19,40 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 @MethodsReturnNonnullByDefault
-public class RotatableLamp extends BlockBase {
+public abstract class RotatableLamp extends Block {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
     public RotatableLamp(String name, Material material) {
-        super(name, material);
+        super(material);
+
+        this.setRegistryName(name);
+        this.setTranslationKey(name);
+        this.setCreativeTab(DocsLampsCreativeTab.getInstance());
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
     }
 
+    public ItemBlock makeItemBlock() {
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(Objects.requireNonNull(getRegistryName()));
+        itemBlock.setTranslationKey(getTranslationKey());
+        itemBlock.setCreativeTab(getCreativeTab());
+        return itemBlock;
+    }
+
+    public static <T extends RotatableLamp> List<ItemBlock> itemBlocks(List<T> blocks) {
+        return blocks.stream()
+                .map(RotatableLamp::makeItemBlock)
+                .collect(Collectors.toList());
+    }
+
+    public abstract String oreDictName();
 
     @Override
     @ParametersAreNonnullByDefault
@@ -42,28 +66,27 @@ public class RotatableLamp extends BlockBase {
         return false;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public boolean isOpaqueCube(IBlockState bs) {
         return false;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public boolean isFullCube(IBlockState state) {
         return false;
     }
 
-
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return NULL_AABB;
     }
-
-
 
     @Override
     @ParametersAreNonnullByDefault
@@ -102,6 +125,7 @@ public class RotatableLamp extends BlockBase {
                 !isExceptBlockForAttachWithPiston(neighborBlock);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
@@ -111,6 +135,7 @@ public class RotatableLamp extends BlockBase {
                 this.getDefaultState().withProperty(FACING, EnumFacing.UP);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
@@ -135,31 +160,33 @@ public class RotatableLamp extends BlockBase {
         return false;
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
         EnumFacing facing;
         switch (meta)
         {
-            case 0:
-                facing = EnumFacing.DOWN;
-                break;
             case 1:
-                facing = EnumFacing.EAST;
+                facing = EnumFacing.UP;
                 break;
             case 2:
-                facing = EnumFacing.WEST;
+                facing = EnumFacing.NORTH;
                 break;
             case 3:
                 facing = EnumFacing.SOUTH;
                 break;
             case 4:
-                facing = EnumFacing.NORTH;
+                facing = EnumFacing.WEST;
                 break;
             case 5:
+                facing = EnumFacing.EAST;
+                break;
+            case 0:
             default:
-                facing = EnumFacing.UP;
+                facing = EnumFacing.DOWN;
+                break;
+
         }
         return this.getDefaultState().withProperty(FACING, facing);
     }
@@ -170,23 +197,23 @@ public class RotatableLamp extends BlockBase {
     {
         switch (state.getValue(FACING))
         {
-            case EAST:
+            case UP:
                 return 1;
-            case WEST:
+            case NORTH:
                 return 2;
             case SOUTH:
                 return 3;
-            case NORTH:
+            case WEST:
                 return 4;
-            case UP:
-            default:
+            case EAST:
                 return 5;
             case DOWN:
+            default:
                 return 0;
         }
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState withRotation(IBlockState state, Rotation rot)
@@ -194,7 +221,7 @@ public class RotatableLamp extends BlockBase {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
@@ -207,7 +234,7 @@ public class RotatableLamp extends BlockBase {
         return new BlockStateContainer(this, FACING);
     }
 
-
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)

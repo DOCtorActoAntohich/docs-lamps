@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "docs_flat_lamp",
   "pattern": [
     "OOO",
     "OGO",
@@ -20,7 +21,7 @@
     }
   },
   "result": {
-    "item": "docslamps:flat_lamp",
+    "item": "docslamps:flat_lamp_yellow",
     "count": 16,
     "data": 0
   }

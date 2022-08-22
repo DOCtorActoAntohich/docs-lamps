@@ -1,3 +1,18 @@
 itemGroup.docslamps=DOC's Lamps
 
-tile.flat_lamp.name=Flat Lamp
+tile.flat_lamp_white.name=Flat Lamp (White)
+tile.flat_lamp_orange.name=Flat Lamp (Orange)
+tile.flat_lamp_magenta.name=Flat Lamp (Magenta)
+tile.flat_lamp_light_blue.name=Flat Lamp (Light Blue)
+tile.flat_lamp_yellow.name=Flat Lamp (Yellow)
+tile.flat_lamp_lime.name=Flat Lamp (Lime)
+tile.flat_lamp_pink.name=Flat Lamp (Pink)
+tile.flat_lamp_gray.name=Flat Lamp (Gray)
+tile.flat_lamp_silver.name=Flat Lamp (Light Gray)
+tile.flat_lamp_cyan.name=Flat Lamp (Cyan)
+tile.flat_lamp_purple.name=Flat Lamp (Purple)
+tile.flat_lamp_blue.name=Flat Lamp (Blue)
+tile.flat_lamp_brown.name=Flat Lamp (Brown)
+tile.flat_lamp_green.name=Flat Lamp (Green)
+tile.flat_lamp_red.name=Flat Lamp (Red)
+tile.flat_lamp_black.name=Flat Lamp (Black)

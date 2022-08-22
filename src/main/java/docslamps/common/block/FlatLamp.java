@@ -1,7 +1,9 @@
 package docslamps.common.block;
 
 import docslamps.util.Collision;
+import docslamps.util.ColorVariants;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -9,6 +11,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @MethodsReturnNonnullByDefault
 public class FlatLamp extends RotatableLamp {
@@ -53,13 +57,22 @@ public class FlatLamp extends RotatableLamp {
     }
 
     public FlatLamp(String name) {
-        super(name, Material.IRON);
+        super(name, Material.CIRCUITS);
 
         this.setLightLevel(1.0f);
         this.setHardness(0.3f);
         this.setResistance(0.5f);
+        this.setSoundType(SoundType.METAL);
     }
 
+    public static List<FlatLamp> allColorVariants() {
+        return ColorVariants.Values.stream()
+                .map(color -> ColorVariants.nameWithColor("flat_lamp", color))
+                .map(FlatLamp::new)
+                .collect(Collectors.toList());
+    }
+
+    @SuppressWarnings("deprecation")
     @Override
     @ParametersAreNonnullByDefault
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -79,5 +92,10 @@ public class FlatLamp extends RotatableLamp {
             default:
                 return Collision.FULL_BLOCK_AABB;
         }
+    }
+
+    @Override
+    public String oreDictName() {
+        return "docsLampFlat";
     }
 }

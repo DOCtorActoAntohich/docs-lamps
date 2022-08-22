@@ -1,6 +1,7 @@
 package docslamps;
 
 import docslamps.proxy.CommonProxy;
+import docslamps.util.OreDictRegistration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -22,5 +23,6 @@ public class DocsLamps
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        OreDictRegistration.registerOreDictItems();
     }
 }
